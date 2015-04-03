@@ -1,0 +1,7 @@
+#define($content)
+<button type="button" class="btn btn-success">success</button>
+#end
+
+#define($title)
+index
+#end
