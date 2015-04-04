@@ -1,0 +1,19 @@
+#define($content)
+    #include("head.vm")
+<div class="wrapper">
+    <form class="form-signin" ng-app="login" ng-controller="loginController">
+        <h2 class="form-signin-heading">请登录</h2>
+        <input type="text" class="form-control" name="username" placeholder="用户名" data-ng-model="userName" required=""
+               autofocus=""/>
+        <input type="password" class="form-control" name="password" placeholder="密码" ng-model="password" required=""/>
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 记住我
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="loginU">登陆</button>
+        <p>form = {{userName}}</p>
+    </form>
+</div>
+#end
+#define($jsFile)
+<script src="/resources/js/controller/login.js"></script>
+#end

@@ -2,9 +2,11 @@
 <head>
     <title>$!title</title>
     <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="resources/css/app.css"/>
 </head>
 <body>
 $!content
 <script src="resources/js/lib/angular/angular.min.js"></script>
+$!jsFile
 </body>
 </html>

@@ -19,8 +19,6 @@ public class LoginDao {
 
     public Boolean login(String name, String password) {
         User bruce = userMapper.getUser(name, password);
-        System.out.println(bruce.getUser_Id());
-        System.out.println(bruce.getPassword());
         if (bruce != null) {
             return true;
         } else {
