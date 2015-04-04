@@ -1,0 +1,6 @@
+<link rel="stylesheet" href="resources/css/app.css" />
+<ul class="nav nav-pills" style="font-size: xx-large;">
+    <li role="presentation" class="active"><a href="/">Home</a></li>
+    <li role="presentation"><a href="/profile">Profile</a></li>
+    <li role="presentation"><a href="#">Messages</a></li>
+</ul>
