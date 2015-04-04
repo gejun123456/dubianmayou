@@ -4,7 +4,6 @@
 var loginA = angular.module('login', []);
 loginA.controller('loginController', function ($scope) {
     $scope.login = function () {
-        $scope.userName = "nihao"
         console.log("nimei");
         console.log($scope.userName);
         console.log($scope.password);
