@@ -7,8 +7,8 @@ loginA.controller('loginController', function ($scope, $http) {
         console.log("nimei");
         console.log($scope.userName);
         console.log($scope.password);
-        $http.post('/login', {username: $scope.userName, password: $scope.password})
-            .success(function (data) {
+        $http.post('/login', {"user_Id": $scope.userName, "password": $scope.password})
+            .success(function (data, status, headers, config) {
                 console.log(data);
             });
     }
