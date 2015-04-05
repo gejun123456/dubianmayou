@@ -3,18 +3,25 @@
         <div class="col-md-3" style="font-size: large">
             <img src="/resources/bootstrap/img/smallIndex.jpg"><big>渡边麻友补档</big>
         </div>
- 
+
         <div class="col-md-6 col-md-offset-1">
             <ul class="nav nav-pills center-block" style="font-size: xx-large;">
                 <li role="presentation"><a href="/">首页</a></li>
                 <li role="presentation"><a href="/video">视频</a></li>
                 <li role="presentation"><a href="/">音乐</a></li>
                 <li role="presentation"><a href="/">图片</a></li>
-                <li role="presentation"><a href="https://zh.wikipedia.org/wiki/%E6%B8%A1%E9%82%8A%E9%BA%BB%E5%8F%8B">关于</a></li>
+                <li role="presentation"><a
+                        href="https://zh.wikipedia.org/wiki/%E6%B8%A1%E9%82%8A%E9%BA%BB%E5%8F%8B">关于</a></li>
             </ul>
         </div>
-        <div class="col-md-2" style="padding-top: 25px;">
-            <li role="presentation"><a href="/login">登陆</a></li>
-        </div>
+        #if ($request.getSession().getAttribute("user"))
+            <div class="col-md-2" style="padding-top: 25px;">
+                <li role="presentation">bruce</li>
+            </div>
+        #else
+            <div class="col-md-2" style="padding-top: 25px;">
+                <li role="presentation"><a href="/login">登陆</a></li>
+            </div>
+        #end
     </div>
 </div>

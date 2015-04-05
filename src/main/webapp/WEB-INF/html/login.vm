@@ -1,11 +1,12 @@
 #define($content)
-    #include("head.vm")
+    #parse("head.vm")
 <div class="wrapper" ng-app="login" ng-controller="loginController">
     <form class="form-signin">
         <h2 class="form-signin-heading">请登录</h2>
         <input type="text" class="form-control" name="username" placeholder="用户名" data-ng-model="userName" required=""
                autofocus=""/>
         <input type="password" class="form-control" name="password" placeholder="密码" ng-model="password" required=""/>
+        <div class="alert alert-danger" role="alert" ng-show="noexist">用户名或密码不正确</div>
         <label class="checkbox">
             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 记住我
         </label>

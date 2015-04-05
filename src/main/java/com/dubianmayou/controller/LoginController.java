@@ -1,10 +1,13 @@
 package com.dubianmayou.controller;
 
 import com.dubianmayou.dao.LoginDao;
+import com.dubianmayou.entity.ResponseMessage;
 import com.dubianmayou.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by bruce on 4/3/2015.
@@ -17,13 +20,14 @@ public class LoginController {
 
 
     @RequestMapping(method = RequestMethod.POST)
-    public
     @ResponseBody
-    String getIndexPage(@RequestBody User user) {
+    public ResponseMessage getIndexPage(@RequestBody User user, HttpSession httpSession) {
         if (loginDao.login(user.getUser_Id(), user.getPassword())) {
-            return "loginss";
+            httpSession.setAttribute("user", "ok");
+            return new ResponseMessage(ResponseMessage.Type.success, "ok");
         } else {
-            return "loginf";
+            httpSession.removeAttribute("user");
+            return new ResponseMessage(ResponseMessage.Type.error, "no");
         }
     }
 }

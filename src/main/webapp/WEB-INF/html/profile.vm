@@ -1,4 +1,4 @@
 #define($content)
-    #include("head.vm")
-
+    #parse("head.vm")
+this is my profile
 #end

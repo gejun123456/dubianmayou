@@ -1,11 +1,10 @@
 #define($content)
-    #include("head.vm")
+    #parse("head.vm")
 <div class="container">
     <div class="row">
         <div class="col-xs-5 col-md-offset-0">
             <img class="img-responsive" src="/resources/bootstrap/img/index.jpg">
         </div>
-
     </div>
 </div>
 

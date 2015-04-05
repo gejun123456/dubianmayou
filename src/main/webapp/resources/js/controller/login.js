@@ -9,7 +9,11 @@ loginA.controller('loginController', function ($scope, $http) {
         console.log($scope.password);
         $http.post('/login', {"user_Id": $scope.userName, "password": $scope.password})
             .success(function (data, status, headers, config) {
-                console.log(data);
+                if (data.type == "success") {
+                    window.location.href = "/";
+                } else {
+                    $scope.noexist = true;
+                }
             });
     }
 });
