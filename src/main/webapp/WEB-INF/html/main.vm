@@ -1,14 +1,14 @@
 <!doctype html>
 <head>
     <title>$!title</title>
-    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="resources/css/app.css"/>
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/resources/css/app.css"/>
 </head>
 <body>
     $!content
-<script src="resources/js/lib/angular/angular.min.js"></script>
-<script src="resources/bootstrap/js/ui-bootstrap-tpls-0.12.1.min.js"></script>
-<script src="resources/js/controller/head.js"></script>
+<script src="/resources/js/lib/angular/angular.min.js"></script>
+<script src="/resources/bootstrap/js/ui-bootstrap-tpls-0.12.1.min.js"></script>
+<script src="/resources/js/controller/head.js"></script>
     $!jsFile
 </body>
 </html>

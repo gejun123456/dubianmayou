@@ -15,5 +15,5 @@
 </div>
 #end
 #define($jsFile)
-<script src="resources/js/controller/login.js"></script>
+<script src="/resources/js/controller/login.js"></script>
 #end
