@@ -28,4 +28,10 @@ public class IndexController {
         return "login";
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String getLogOut(HttpSession httpSession) {
+        httpSession.removeAttribute("user");
+        return "index";
+    }
+
 }

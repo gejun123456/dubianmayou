@@ -23,7 +23,7 @@ public class LoginController {
     @ResponseBody
     public ResponseMessage getIndexPage(@RequestBody User user, HttpSession httpSession) {
         if (loginDao.login(user.getUser_Id(), user.getPassword())) {
-            httpSession.setAttribute("user", "ok");
+            httpSession.setAttribute("user", user.getUser_Id());
             return new ResponseMessage(ResponseMessage.Type.success, "ok");
         } else {
             httpSession.removeAttribute("user");
