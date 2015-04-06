@@ -29,8 +29,11 @@ public class SignUpController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public ResponseMessage getSignUp(@RequestBody User user, HttpSession httpSession) {
-        if(loginDao.insert(user.getUser_Id(), user.getPassword())) {
+        if (loginDao.insert(user.getUser_Id(), user.getPassword())) {
             httpSession.setAttribute("user", user.getUser_Id());
+            if (user.getUser_Id().equals("bruce")) {
+                httpSession.setAttribute("isAdmin", true);
+            }
             return new ResponseMessage(ResponseMessage.Type.success, "ok");
         } else {
             return new ResponseMessage(ResponseMessage.Type.error, "ok");

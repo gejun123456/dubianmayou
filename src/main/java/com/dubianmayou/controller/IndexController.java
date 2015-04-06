@@ -30,7 +30,7 @@ public class IndexController {
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String getLogOut(HttpSession httpSession) {
-        httpSession.removeAttribute("user");
+        httpSession.invalidate();
         return "index";
     }
 
