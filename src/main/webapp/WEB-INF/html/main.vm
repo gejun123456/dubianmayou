@@ -3,6 +3,7 @@
     <title>$!title</title>
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/resources/css/app.css"/>
+    <link rel="shortcut icon" href="/resources/bootstrap/img/Favicon.ico">
 </head>
 <body>
     $!content
