@@ -25,4 +25,16 @@ public class LoginDao {
             return false;
         }
     }
+
+    public Boolean insert(String name, String password) {
+        try {
+            User user = new User();
+            user.setUser_Id(name);
+            user.setPassword(password);
+            userMapper.insertUser(user);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

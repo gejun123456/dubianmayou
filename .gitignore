@@ -2,3 +2,5 @@
 *.iml
 target/
 src/resources/rebel.xml
+src/main/resources/rebel.xml
+src/main/resources/rebel.xml
