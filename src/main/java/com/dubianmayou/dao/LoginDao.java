@@ -3,6 +3,8 @@ package com.dubianmayou.dao;
 import com.dubianmayou.dao.inter.UserMapper;
 import com.dubianmayou.entity.User;
 
+import java.util.List;
+
 /**
  * Created by bruce on 4/4/2015.
  */
@@ -36,5 +38,9 @@ public class LoginDao {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public List<User> findAllUser() {
+        return userMapper.findAll();
     }
 }

@@ -20,4 +20,6 @@ public interface UserMapper {
     @Insert("INSERT INTO user (USER_ID,PASSWORD) VALUES (#{user_Id},#{password})")
     int insertUser(User user) throws Exception;
 
+    @Select("SELECT * FROM user")
+    List<User> findAll();
 }
