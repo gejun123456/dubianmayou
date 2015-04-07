@@ -29,7 +29,6 @@
     bb = ${testjs};
     console.log(bb);
 </script>
-<script src="/resources/js/controller/test.js"></script>
 
 #end
 #define($jsFile)
