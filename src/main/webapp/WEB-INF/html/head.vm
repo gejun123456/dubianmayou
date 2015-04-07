@@ -24,7 +24,7 @@
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="/logout">退出</a></li>
                     #if($isAdmin)
-                        <li><a href="/manager">管理用户</a></li>
+                        <li><a href="/managerUser">管理用户</a></li>
                     #end
                 </ul>
             </div>
