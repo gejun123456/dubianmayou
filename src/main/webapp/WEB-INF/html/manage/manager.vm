@@ -2,38 +2,34 @@
     #parse("head.vm")
 <div class="container" ng-app="managerUser" ng-controller="managerController">
     <h2>All User</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>name</th>
-            <th>password</th>
-        </tr>
-        </thead>
-        <tbody>
-            #foreach($user in $allUser)
-            <tr>
-                <th>$user.user_Id</th>
-                <th>$user.password</th>
-                <th>
-                    <button>delete</button>
-                </th>
-            </tr>
-            #end
-        </tbody>
-    </table>
-    <div id="grid1" ui-grid="gridOptions" ui-grid-edit style="width: 500px;height: 200px;"></div>
-    Enter name: <input type="text" ng-model="name"><br>
-    Hello <span ng-bind="name"></span>!
+##    <table class="table">
+##        <thead>
+##        <tr>
+##            <th>name</th>
+##            <th>password</th>
+##        </tr>
+##        </thead>
+##        <tbody>
+##            #foreach($user in $allUser)
+##            <tr>
+##                <th>$user.user_Id</th>
+##                <th>$user.password</th>
+##                <th>
+##                    <button>delete</button>
+##                </th>
+##            </tr>
+##            #end
+##        </tbody>
+##    </table>
+    <div id="grid1" ui-grid="{data:myData}" ui-grid-edit style="width:1000px;height: 500px;"></div>
 </div>
-<div id='hehe'></div>
 <script>
     bb = ${testjs};
-    console.log(bb);
 </script>
 
 #end
 #define($jsFile)
 <script src="/resources/js/controller/manager.js"></script>
-<link href="/resources/js/lib/ui-grid/ui-grid.min.css"/>
+<link rel="stylesheet" href="/resources/js/lib/ui-grid/ui-grid.min.css"/>
 <script src="/resources/js/lib/ui-grid/ui-grid.min.js"></script>
 #end
