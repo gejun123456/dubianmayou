@@ -14,19 +14,16 @@
             </ul>
         </div>
         #if ($user)
-            <div class="btn-group" dropdown style="padding-top:15px;" ng-app="head"
-                 ng-controller="headController">
-                <button type="button" class="btn btn-primary">$user</button>
-                <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
-                    <span class="caret"></span>
-                    <span class="sr-only">Split button!</span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="/logout">退出</a></li>
-                    #if($isAdmin)
-                        <li><a href="/managerUser">管理用户</a></li>
-                    #end
-                </ul>
+            <div class="col-md-2" style="padding-top: 15px;>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                        $user
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">退出</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/managerUser">管理用户</a></li>
+                    </ul>
+                </div>
             </div>
         #else
             <div class="col-md-2" style="padding-top: 15px;">

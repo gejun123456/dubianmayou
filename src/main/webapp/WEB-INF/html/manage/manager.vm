@@ -21,6 +21,7 @@
             #end
         </tbody>
     </table>
+    <div id="grid1" ui-grid="gridOptions" ui-grid-edit style="width: 500px;height: 200px;"></div>
     Enter name: <input type="text" ng-model="name"><br>
     Hello <span ng-bind="name"></span>!
 </div>
