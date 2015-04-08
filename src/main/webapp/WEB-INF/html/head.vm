@@ -1,37 +1,40 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-3" style="font-size: large">
-            <img src="resources/bootstrap/img/smallIndex.jpg"><big>渡边麻友补档</big>
-        </div>
-        <div class="col-md-6 col-md-offset-1">
-            <ul class="nav nav-pills center-block" style="font-size: xx-large;">
-                <li role="presentation"><a href="/">首页</a></li>
-                <li role="presentation"><a href="/profile">视频</a></li>
-                <li role="presentation"><a href="">音乐</a></li>
-                <li role="presentation"><a href="">图片</a></li>
-                <li role="presentation"><a
-                        href="https://zh.wikipedia.org/wiki/%E6%B8%A1%E9%82%8A%E9%BA%BB%E5%8F%8B">关于</a></li>
-            </ul>
-        </div>
-        #if ($user)
-            <div class="col-md-2" style="padding-top: 15px;>
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                        $user
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">退出</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/managerUser">管理用户</a></li>
-                    </ul>
-                </div>
-            </div>
-        #else
-            <div class="col-md-2" style="padding-top: 15px;">
-            ##                <li role="presentation"><a href="/login">登陆</a></li>
-                <a href="/signup" class="btn btn-primary">注册</a>
-                <a href="/login" class="btn btn-primary">登陆</a>
-            </div>
-
-        #end
+<div class="row">
+    <div class="col-md-3" style="font-size: large">
+        <img src="resources/bootstrap/img/smallIndex.jpg"><big>渡边麻友补档</big>
     </div>
+    <div class="col-md-6 col-md-offset-1">
+        <ul class="nav nav-pills center-block" style="font-size: xx-large;">
+            <li role="presentation"><a href="/">首页</a></li>
+            <li role="presentation"><a href="/profile">视频</a></li>
+            <li role="presentation"><a href="">音乐</a></li>
+            <li role="presentation"><a href="">图片</a></li>
+            <li role="presentation"><a
+                    href="https://zh.wikipedia.org/wiki/%E6%B8%A1%E9%82%8A%E9%BA%BB%E5%8F%8B">关于</a></li>
+        </ul>
+    </div>
+#if ($user)
+    <div class="col-md-2" style="padding-top: 15px;>
+                <div class=" dropdown
+    ">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+        $user
+        <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">退出</a></li>
+        #if($isAdmin)
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/managerUser">管理用户</a></li>
+        #end
+    </ul>
+</div>
+</div>
+#else
+<div class="col-md-2" style="padding-top: 15px;">
+##                <li role="presentation"><a href="/login">登陆</a></li>
+    <a href="/signup" class="btn btn-primary">注册</a>
+    <a href="/login" class="btn btn-primary">登陆</a>
+</div>
+
+#end
+</div>
 </div>
