@@ -1,3 +1,8 @@
-# dubianmayou
-this is the website content for 
-dubianmayou.com
+#dubianmayou
+
+---
+
+this is the code for website [dubianmayou.com][1]
+
+
+  [1]: dubianmayou.com
