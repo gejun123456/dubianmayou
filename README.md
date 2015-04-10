@@ -2,7 +2,5 @@
 
 ---
 
-this is the code for website [dubianmayou.com][1]
+this is the code for website [dubianmayou.com](dubianmayou.com:8080)
 
-
-  [1]: dubianmayou.com:8080
