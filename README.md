@@ -16,6 +16,15 @@ first create sql statement in db
 	  PRIMARY KEY (`USER_ID`),
 	  UNIQUE KEY `USER_ID_UNIQUE` (`USER_ID`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+	CREATE TABLE `akbs` (
+	  `NAME` varchar(45) NOT NULL,
+	  `COUNT` int(11) NOT NULL,
+	  `akbid` varchar(45) NOT NULL,
+	  PRIMARY KEY (`akbid`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 then configure your db to applicationContextDao.xml
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
