@@ -9,11 +9,47 @@
                 <img src="resources/bootstrap/img/smallIndex.jpg">
             </div>
                 <div class="row">
-                    <p class="text-info" style="color: #c9302c" id="countmayu"></p>
+                    <p class="text-info" style="color: #c9302c" id="mayu"></p>
                 </div>
             #if ($user)
                 <div class="row">
                     <button class="btn btn-primary" id="addmayu">+1</button>
+                </div>
+            #else
+                <div class="row">
+                    <p class="text-info">登陆后可进行投票</p>
+                </div>
+            #end
+        </div>
+
+        <div class="col-md-2">
+            <div class="row">
+                <img src="resources/bootstrap/img/smallIndex.jpg">
+            </div>
+            <div class="row">
+                <p class="text-info" style="color: #c9302c" id="zhiyuan"></p>
+            </div>
+            #if ($user)
+                <div class="row">
+                    <button class="btn btn-primary" id="addzhiyuan">+1</button>
+                </div>
+            #else
+                <div class="row">
+                    <p class="text-info">登陆后可进行投票</p>
+                </div>
+            #end
+        </div>
+
+        <div class="col-md-2">
+            <div class="row">
+                <img src="resources/bootstrap/img/smallIndex.jpg">
+            </div>
+            <div class="row">
+                <p class="text-info" style="color: #c9302c" id="me"></p>
+            </div>
+            #if ($user)
+                <div class="row">
+                    <button class="btn btn-primary" id="addme">+1</button>
                 </div>
             #else
                 <div class="row">
