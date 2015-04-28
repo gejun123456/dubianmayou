@@ -22,6 +22,8 @@
 ##        </tbody>
 ##    </table>
     <div id="grid1" ui-grid="{data:myData}" ui-grid-edit style="width:1000px;height: 500px;"></div>
+    <input type="text" id = "sql">
+    <button class="alert-success" ng-click="go()"">runsql</button>
 </div>
 <script>
     bb = ${testjs};

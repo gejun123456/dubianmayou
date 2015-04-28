@@ -1,0 +1,9 @@
+#define($content)
+    #parse("head.vm")
+    <br>
+    <textarea style="width:500px;height: 500px;" id = "sql"></textarea>
+    <button class="alert-success" id="runsql">runsql</button>
+#end
+#define($jsFile)
+<script src="/resources/js/controller/manage/sql.js"></script>
+#end
