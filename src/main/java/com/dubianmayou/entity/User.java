@@ -1,9 +1,12 @@
 package com.dubianmayou.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by bruce on 4/4/2015.
  */
-public class User {
+public class User implements Serializable{
+    private static final long serialVersionUID = -4202830655007616623L;
     private String user_Id;
     private String password;
 

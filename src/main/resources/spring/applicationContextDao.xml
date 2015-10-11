@@ -1,21 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-       <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-              <property name="dataSource" ref="dataSource" />
-       </bean>
-       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="com.dubianmayou.dao" />
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
               <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-              <property name="url" value="jdbc:mysql://localhost:3306/world"/>
+              <property name="url" value="jdbc:mysql://localhost:3307/world"/>
               <property name="username" value="root"/>
-              <property name="password" value="123456"/>
+              <property name="password" value="root"/>
        </bean>
-       <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-              <property name="mapperInterface" value="com.dubianmayou.dao.inter.UserMapper" />
-              <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="typeAliasesPackage" value="com.dubianmayou.entity" />
+        <property name="mapperLocations" value="classpath*:mapper/*.xml" />
+    </bean>
+
+       <!-- enable transaction demarcation with annotations -->
+       <tx:annotation-driven />
+
+
+       <!-- scan for mappers and let them be autowired -->
+       <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+              <property name="basePackage" value="com.dubianmayou.dao.inter"/>
        </bean>
-       <bean id="loginDao" class="com.dubianmayou.dao.LoginDao">
-              <property name="userMapper" ref="userMapper"/>
-       </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+        <!--<tx:attributes>-->
+            <!--&lt;!&ndash;所有以find开头的方法都是只读的&ndash;&gt;-->
+            <!--<tx:method name="find*" read-only="true"/>-->
+            <!--<tx:method name="save*" />-->
+            <!--&lt;!&ndash;其他方法使用默认事务策略&ndash;&gt;-->
+            <!--<tx:method name="*" />-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+    <!--&lt;!&ndash; AOP配置&ndash;&gt;-->
+    <!--<aop:config>-->
+        <!--&lt;!&ndash;pointcut元素定义一个切入点，execution中的第一个星号-->
+        <!--用以匹配方法的返回类型，这里星号表明匹配所有返回类型。-->
+        <!--com.abc.dao.*.*(..)表明匹配com.abc.dao包下的所有类的所有-->
+        <!--方法&ndash;&gt;-->
+        <!--<aop:pointcut id="myPointcut"-->
+                      <!--expression="execution(* com.dubianmayou.dao.inter.*(..))" />-->
+        <!--&lt;!&ndash;将定义好的事务处理策略应用到上述的切入点&ndash;&gt;-->
+        <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />-->
+    <!--</aop:config>-->
 </beans>
