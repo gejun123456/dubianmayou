@@ -22,15 +22,16 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public ResponseMessage getIndexPage(@RequestBody User user, HttpSession httpSession) {
-        if (loginDao.login(user.getUser_Id(), user.getPassword())) {
-            httpSession.setAttribute("user", user.getUser_Id());
-            if (user.getUser_Id().equals("bruce")) {
-                httpSession.setAttribute("isAdmin", true);
-            }
-            return new ResponseMessage(ResponseMessage.Type.success, "ok");
-        } else {
-            httpSession.removeAttribute("user");
-            return new ResponseMessage(ResponseMessage.Type.error, "no");
-        }
+//        if (loginDao.login(user.getUser_Id(), user.getPassword())) {
+//            httpSession.setAttribute("user", user.getUser_Id());
+//            if (user.getUser_Id().equals("bruce")) {
+//                httpSession.setAttribute("isAdmin", true);
+//            }
+//            return new ResponseMessage(ResponseMessage.Type.success, "ok");
+//        } else {
+//            httpSession.removeAttribute("user");
+//            return new ResponseMessage(ResponseMessage.Type.error, "no");
+//        }
+        return new ResponseMessage(ResponseMessage.Type.error, "no");
     }
 }

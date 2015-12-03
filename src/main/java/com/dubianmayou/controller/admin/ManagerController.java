@@ -21,9 +21,9 @@ public class ManagerController {
 
     @RequestMapping(value = "/managerUser", method = RequestMethod.GET)
     public String managerUser(ModelMap modelMap) {
-        List<User> allUser = loginDao.findAllUser();
-        modelMap.put("allUser", allUser);
-        modelMap.put("testjs", new Gson().toJson(allUser));
+//        List<User> allUser = loginDao.findAllUser();
+//        modelMap.put("allUser", allUser);
+//        modelMap.put("testjs", new Gson().toJson(allUser));
         return "manage/manager";
     }
 }

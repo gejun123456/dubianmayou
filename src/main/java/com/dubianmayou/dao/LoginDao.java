@@ -1,6 +1,6 @@
 package com.dubianmayou.dao;
 
-import com.dubianmayou.dao.inter.UserMapper;
+import com.dubianmayou.dao.mapper.UserMapper;
 import com.dubianmayou.entity.User;
 
 import java.util.List;
@@ -19,28 +19,28 @@ public class LoginDao {
         this.userMapper = userMapper;
     }
 
-    public Boolean login(String name, String password) {
-        User bruce = userMapper.getUser(name, password);
-        if (bruce != null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public Boolean insert(String name, String password) {
-        try {
-            User user = new User();
-            user.setUser_Id(name);
-            user.setPassword(password);
-            userMapper.insertUser(user);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public List<User> findAllUser() {
-        return userMapper.findAll();
-    }
+//    public Boolean login(String name, String password) {
+//        User bruce = userMapper.getUser(name, password);
+//        if (bruce != null) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+//
+//    public Boolean insert(String name, String password) {
+//        try {
+//            User user = new User();
+//            user.setUser_Id(name);
+//            user.setPassword(password);
+//            userMapper.insertUser(user);
+//            return true;
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
+//
+//    public List<User> findAllUser() {
+//        return userMapper.findAll();
+//    }
 }

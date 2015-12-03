@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dubianmayou.dao.mapper.UserMapper">
+
+    <select id="loadUser" parameterType="map" resultType="User">
+        select id,userName,password,createTime,updateTime from USER
+        Where userName=#{userName} and password =#{password}
+    </select>
+</mapper>

@@ -4,21 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
               <property name="dataSource" ref="dataSource" />
+              <property name="typeAliasesPackage" value="com.dubianmayou.entity"/>
        </bean>
        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
               <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
               <property name="url" value="jdbc:mysql://localhost:3306/world"/>
               <property name="username" value="root"/>
-              <property name="password" value="123456"/>
+              <property name="password" value="root"/>
        </bean>
-       <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-              <property name="mapperInterface" value="com.dubianmayou.dao.inter.UserMapper" />
-              <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-       </bean>
-       <bean id="loginDao" class="com.dubianmayou.dao.LoginDao">
-              <property name="userMapper" ref="userMapper"/>
-       </bean>
+
+
        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-              <property name="basePackage" value=""
+              <property name="basePackage" value="com.dubianmayou.dao.mapper" />
        </bean>
+
 </beans>
