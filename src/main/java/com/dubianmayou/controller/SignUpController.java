@@ -1,6 +1,6 @@
 package com.dubianmayou.controller;
 
-import com.dubianmayou.dao.LoginDao;
+import com.dubianmayou.service.LoginService;
 import com.dubianmayou.entity.ResponseMessage;
 import com.dubianmayou.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/signup")
 public class SignUpController {
     @Autowired
-    private LoginDao loginDao;
+    private LoginService loginService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getSignUpPage() {

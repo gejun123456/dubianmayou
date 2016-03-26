@@ -1,15 +1,11 @@
 package com.dubianmayou.controller.admin;
 
-import com.dubianmayou.dao.LoginDao;
-import com.dubianmayou.entity.User;
-import com.google.gson.Gson;
+import com.dubianmayou.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.List;
 
 /**
  * Created by bruce on 4/7/2015.
@@ -17,7 +13,7 @@ import java.util.List;
 @Controller
 public class ManagerController {
     @Autowired
-    private LoginDao loginDao;
+    private LoginService loginService;
 
     @RequestMapping(value = "/managerUser", method = RequestMethod.GET)
     public String managerUser(ModelMap modelMap) {

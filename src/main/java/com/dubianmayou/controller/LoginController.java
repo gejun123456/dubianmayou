@@ -1,8 +1,8 @@
 package com.dubianmayou.controller;
 
-import com.dubianmayou.dao.LoginDao;
+import com.dubianmayou.pageentity.User;
+import com.dubianmayou.service.LoginService;
 import com.dubianmayou.entity.ResponseMessage;
-import com.dubianmayou.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +16,20 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/login")
 public class LoginController {
     @Autowired
-    private LoginDao loginDao;
-
+    private LoginService loginService;
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public ResponseMessage getIndexPage(@RequestBody User user, HttpSession httpSession) {
-//        if (loginDao.login(user.getUser_Id(), user.getPassword())) {
-//            httpSession.setAttribute("user", user.getUser_Id());
-//            if (user.getUser_Id().equals("bruce")) {
-//                httpSession.setAttribute("isAdmin", true);
-//            }
-//            return new ResponseMessage(ResponseMessage.Type.success, "ok");
-//        } else {
-//            httpSession.removeAttribute("user");
-//            return new ResponseMessage(ResponseMessage.Type.error, "no");
-//        }
-        return new ResponseMessage(ResponseMessage.Type.error, "no");
+        if (loginService.login(user.getUserName(), user.getPassword())) {
+            httpSession.setAttribute("user", user.getUserName());
+            if (user.getUserName().equals("bruce")) {
+                httpSession.setAttribute("isAdmin", true);
+            }
+            return new ResponseMessage(ResponseMessage.Type.success, "ok");
+        } else {
+            httpSession.removeAttribute("user");
+            return new ResponseMessage(ResponseMessage.Type.error, "no");
+        }
     }
 }

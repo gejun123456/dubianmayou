@@ -7,7 +7,7 @@ loginA.controller('loginController', function ($scope, $http, $location) {
         console.log("nimei");
         console.log($scope.userName);
         console.log($scope.password);
-        $http.post('/login', {"user_Id": $scope.userName, "password": $scope.password})
+        $http.post('/login', {"userName": $scope.userName, "password": $scope.password})
             .success(function (data, status, headers, config) {
                 if (data.type == "success") {
                     console.log("hi");
