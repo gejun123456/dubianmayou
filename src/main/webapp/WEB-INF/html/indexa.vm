@@ -1,0 +1,4 @@
+#define($content)
+    hello world
+    everyMan
+#end

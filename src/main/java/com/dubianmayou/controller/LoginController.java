@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     @Autowired
     private LoginService loginService;
-
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public ResponseMessage getIndexPage(@RequestBody User user, HttpSession httpSession) {
