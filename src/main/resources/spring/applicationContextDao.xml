@@ -17,7 +17,7 @@
        <bean id="slaveSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
               <property name="dataSource" ref="slaveDateSource" />
               <property name="typeAliasesPackage" value="com.dubianmayou.entity"/>
-              <property name="mapperLocations" value="classpath*:com/dubianmayou/dao/hehe/slave/*.xml"/>
+              <property name="mapperLocations" value="classpath*:com/dubianmayou/dao/hehe/*.xml"/>
        </bean>
        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
               <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
