@@ -1,15 +1,11 @@
-package com.dubianmayou.dao.mapper;
+package com.dubianmayou.dao.slave.mapper;
 
 import com.dubianmayou.entity.User;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-
-import java.util.List;
 
 /**
  * Created by bruce on 4/4/2015.
  */
-public interface UserMapper {
+public interface SlaveUserMapper {
     User loadUser(@Param("userName") String userName, @Param("password") String password);
 }
