@@ -25,7 +25,7 @@
     </bean>
 
        <!-- enable transaction demarcation with annotations -->
-       <tx:annotation-driven />
+       <tx:annotation-driven transaction-manager="transactionManager"/>
 
 
        <!-- scan for mappers and let them be autowired -->

@@ -53,7 +53,7 @@
                 </div>
             #else
                 <div class="row">
-                    <p class="text-info">登陆后可进行投票</p>
+                    <p class="text-info">登陆后投票</p>
                 </div>
             #end
         </div>
