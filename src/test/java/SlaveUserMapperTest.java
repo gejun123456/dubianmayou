@@ -25,10 +25,10 @@ public class SlaveUserMapperTest extends AbstractTest {
     @Test
     @Transactional
     public void testTransactioin(){
-        User user = userMapper.loadUser("bruce.ge","12345");
+        User user = userMapper.loadUser2("bruce.ge","12345");
         printToJson(user);
         System.out.println("nimei");
-        user = userMapper.loadUser("bruce.ge", "12345");
+        user = userMapper.loadUser2("bruce.ge", "12345");
         printToJson(user);
         System.out.println("hehe");
     }
