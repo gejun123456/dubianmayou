@@ -3,7 +3,6 @@ import com.dubianmayou.dao.slave.mapper.SlaveUserMapper;
 import com.dubianmayou.entity.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import pac.AbstractTest;
 
 /**
@@ -23,13 +22,19 @@ public class SlaveUserMapperTest extends AbstractTest {
 
 
     @Test
-    @Transactional
     public void testTransactioin(){
-        User user = userMapper.loadUser2("bruce.ge","12345");
+        User user = userMapper.loadUser("bruce.ge", "12345");
         printToJson(user);
         System.out.println("nimei");
-        user = userMapper.loadUser2("bruce.ge", "12345");
+        user = userMapper.loadUser("bruce.ge", "12345");
         printToJson(user);
+        System.out.println("start with slave");
+
+        User slaveuser = slaveUserMapper.loadUser("bruce.ge","12345");
+        printToJson(slaveuser);
+        System.out.println("nimei");
+        slaveuser = slaveUserMapper.loadUser("bruce.ge", "12345");
+        printToJson(slaveuser);
         System.out.println("hehe");
     }
 
