@@ -24,7 +24,6 @@ public class JdbcTemplateTest extends AbstractTest{
     @Test
     public void testFind(){
         List<User> query = jdbcTemplate.query("select * from user", new RowMapper<User>() {
-            @Override
             public User mapRow(ResultSet resultSet, int i) throws SQLException {
                 User use = new User();
                 use.setUserName(resultSet.getString("userName"));
