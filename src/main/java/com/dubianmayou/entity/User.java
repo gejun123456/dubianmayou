@@ -6,17 +6,17 @@ import java.util.Date;
  * Created by bruce on 4/4/2015.
  */
 public class User  {
-    private String id;
+    private int id;
     private String userName;
     private String password;
     private Date createTime;
     private Date updateTime;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

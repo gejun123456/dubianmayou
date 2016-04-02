@@ -5,6 +5,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import pac.AbstractTest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by bruce on 12/3/2015.
  */
@@ -46,5 +49,32 @@ public class SlaveUserMapperTest extends AbstractTest {
         user = slaveUserMapper.loadUser("bruce.ge", "12345");
         printToJson(user);
         System.out.println("hehe");
+    }
+
+    @Test
+    public void testInsert(){
+        User user = new User();
+        user.setUserName("hehe");
+        user.setPassword("nimei");
+        int a = userMapper.insert(user);
+        System.out.println(user.getId());
+        System.out.println(a);
+    }
+
+    @Test
+    public void mutipleInsert(){
+        List<User> userList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            User a = new User();
+            a.setUserName("lala"+i);
+            a.setPassword("lala"+i);
+            userList.add(a);
+        }
+        int a = userMapper.insertList(userList);
+        printToJson(a);
+        for (int i = 0; i < 10; i++) {
+            printToJson(userList.get(i));
+        }
+
     }
 }

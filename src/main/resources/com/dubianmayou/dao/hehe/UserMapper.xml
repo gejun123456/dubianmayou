@@ -12,4 +12,21 @@
         select id,userName,password,createTime,updateTime from USER
         Where userName=#{userName} and password =#{password}
     </select>
+
+    <insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="entity.id" keyColumn="user.id">
+        INSERT INTO user (userName,password,createTime,updateTime)
+        VALUES
+        (#{entity.userName},#{entity.password},now(),now());
+    </insert>
+
+
+    <insert id="insertList" parameterType="java.util.List">
+        <selectKey resultType ="java.lang.Integer" keyProperty= "id" order="AFTER">
+          SELECT LAST_INSERT_ID()
+        </selectKey >
+        INSERT into user (userName,password,createTime,updateTime) VALUES
+        <foreach collection="userList" item="element" index="index" separator=",">
+         (#{element.userName},#{element.password},now(),now())
+        </foreach>
+    </insert>
 </mapper>
