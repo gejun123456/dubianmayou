@@ -12,6 +12,18 @@
               <property name="dataSource" ref="dataSource" />
               <property name="typeAliasesPackage" value="com.dubianmayou.entity"/>
               <property name="mapperLocations" value="classpath*:com/dubianmayou/dao/hehe/*.xml"/>
+              <property name="plugins">
+                     <array>
+                            <bean class="com.github.pagehelper.PageHelper">
+                                   <property name="properties">
+                                          <value>
+                                                 dialect=mysql
+                                                 reasonable=true
+                                          </value>
+                                   </property>
+                            </bean>
+                     </array>
+              </property>
        </bean>
 
        <bean id="slaveSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

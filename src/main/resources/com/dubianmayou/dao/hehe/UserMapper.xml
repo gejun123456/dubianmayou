@@ -13,6 +13,16 @@
         Where userName=#{userName} and password =#{password}
     </select>
 
+    <sql id="select_sql">
+        SELECT id,userName,password,createTime,updateTime
+        FROM USER
+    </sql>
+
+    <select id="queryUser" parameterType="map" resultType="User">
+        <include refid="select_sql"></include>
+        WHERE userName=#{userid} and password =#{password}
+    </select>
+
     <insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="entity.id" keyColumn="user.id">
         INSERT INTO user (userName,password,createTime,updateTime)
         VALUES
