@@ -1,0 +1,9 @@
+#define($content)
+$hehe
+
+    #foreach( $follow in $followers )
+    <li>$follow.picUrl</li>
+    <li>$follow.url</li>
+    <li>$follow.count</li>
+    #end
+#end
