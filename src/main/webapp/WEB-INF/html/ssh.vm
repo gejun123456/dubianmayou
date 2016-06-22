@@ -1,0 +1,9 @@
+#define($content)
+#foreach( $follow in $app )
+<li class="myapp" id="$follow">应用:$follow</li>
+    <div id="div$follow"></div>
+#end
+#end
+#define($jsFile)
+<script src="/resources/js/controller/ssh.js"></script>
+#end

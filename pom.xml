@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.website.dubianmayou</groupId>
-  <artifactId>watanabemayu</artifactId>
+  <artifactId>dubianmayou</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>watanabemayu Maven Webapp</name>
+  <name>dubianmayou</name>
   <url>http://maven.apache.org</url>
   <properties>
       <maven.compiler.source>1.8</maven.compiler.source>
@@ -30,12 +30,6 @@
       <artifactId>spring-test</artifactId>
       <version>${spring-version}</version>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context-support</artifactId>
-      <version>${spring-version}</version>
     </dependency>
 
     <dependency>
@@ -122,18 +116,45 @@
       <version>1.6.11</version>
     </dependency>
 
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.4</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore</artifactId>
+      <version>4.4.4</version>
+    </dependency>
+
+
+
+
+
+
+
+
+
   </dependencies>
 
 
 
   <build>
-    <finalName>watanabemayu</finalName>
+    <finalName>dubianmayou</finalName>
   </build>
 
 </project>

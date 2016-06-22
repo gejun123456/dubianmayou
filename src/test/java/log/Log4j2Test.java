@@ -35,4 +35,10 @@ public class Log4j2Test {
         StringBuffer buffer= stringWriter.getBuffer();
         return buffer.toString();
     }
+
+
+    @Test
+    public void testPrintln(){
+        System.out.println("你妈的");
+    }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dubianmayou.dao.mapper.OperatorMapper">
+
+    <select id="loadByIp" parameterType="map" resultType="Operator">
+        select id,ip,code,createTime,updateTime from operator
+        Where ip=#{ip}
+    </select>
+
+    <!--<select id="loadUser2" parameterType="map" resultType="User">-->
+        <!--select id,userName,password,createTime,updateTime from USER-->
+        <!--Where userName=#{userName} and password =#{password}-->
+    <!--</select>-->
+
+    <!--<sql id="select_sql">-->
+        <!--SELECT id,userName,password,createTime,updateTime-->
+        <!--FROM USER-->
+    <!--</sql>-->
+
+    <!--<select id="queryUser" parameterType="map" resultType="User">-->
+        <!--<include refid="select_sql"></include>-->
+        <!--WHERE userName=#{userid} and password =#{password}-->
+    <!--</select>-->
+
+    <!--<insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="entity.id" keyColumn="user.id">-->
+        <!--INSERT INTO user (userName,password,createTime,updateTime)-->
+        <!--VALUES-->
+        <!--(#{entity.userName},#{entity.password},now(),now());-->
+    <!--</insert>-->
+
+
+    <!--<insert id="insertList" parameterType="java.util.List">-->
+        <!--<selectKey resultType ="java.lang.Integer" keyProperty= "id" order="AFTER">-->
+            <!--SELECT LAST_INSERT_ID()-->
+        <!--</selectKey >-->
+        <!--INSERT into user (userName,password,createTime,updateTime) VALUES-->
+        <!--<foreach collection="userList" item="element" index="index" separator=",">-->
+            <!--(#{element.userName},#{element.password},now(),now())-->
+        <!--</foreach>-->
+    <!--</insert>-->
+</mapper>

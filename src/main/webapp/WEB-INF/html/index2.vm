@@ -1,9 +1,6 @@
 #define($content)
 $hehe
-
     #foreach( $follow in $followers )
-    <li>$follow.picUrl</li>
-    <li>$follow.url</li>
-    <li>$follow.count</li>
+    <li><a href="$follow.url"><img src="$follow.picUrl">  </a> 人气:$follow.count</li>
     #end
 #end
