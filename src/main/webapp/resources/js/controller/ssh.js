@@ -4,8 +4,12 @@
 $(document).ready(function(){
     $(".myapp").click(function (event) {
         // alert(event.target.id)
-        var changid = "div"+event.target.id;
+        var id = event.target.id
+        $.get("/ssh/"+id, function(data){
+            alert("Data Loaded: " + data);
+        });
+        var changid = "div"+id;
         //send post data choose the way to use.
-        $("#"+changid).html("nimeiya")
+        // $("#"+changid).html("nimeiya")
     })
 });

@@ -1,6 +1,8 @@
 package com.dubianmayou.controller;
 
 import com.dubianmayou.utils.cmdb.CmdbUtil;
+import com.dubianmayou.utils.cmdb.Projects;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +27,7 @@ public class SshController {
 
     @RequestMapping("{app}")
     public @ResponseBody String getAddressForOneApp(@PathVariable("app") String app){
-        return "haha";
+        Projects projectByName = CmdbUtil.getProjectByName(app);
+        return new Gson().toJson(projectByName.getDevices());
     }
 }
