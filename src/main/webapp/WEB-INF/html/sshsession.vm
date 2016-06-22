@@ -1,0 +1,12 @@
+#define($content)
+##    #foreach( $follow in $app )
+##    <li class="myapp" id="$follow">应用:$follow</li>
+##    <div id="div$follow"></div>
+##    #end
+    $title
+<input type="text" class="command" />
+<textarea name="textarea" rows="10" cols="50" id="bigtext">$sessionData</textarea>
+#end
+#define($jsFile)
+<script src="/resources/js/controller/sshsession.js"></script>
+#end
