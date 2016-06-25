@@ -30,6 +30,9 @@ public class SshController {
     @RequestMapping("/")
     public String getAllAddress(ModelMap modelMap){
         List<String> allApps = CmdbUtil.getAllApps();
+        if(CollectionUtils.isEmpty(allApps)){
+            allApps.add("discount-center-service");
+        }
         modelMap.addAttribute("app",allApps);
         return "ssh";
     }
@@ -40,15 +43,15 @@ public class SshController {
         return new Gson().toJson(projectByName.getDevices());
     }
 
-    @RequestMapping("{app}/{ip}")
+    //should separate request and get response.  //only login to this page. not get data. get data should be continues.
+    @RequestMapping("{app}/{ip}/")
     public String ConnectToIp(@PathVariable("app")String app, @PathVariable("ip") String ip, HttpSession session,ModelMap model){
         //get login to the ssh service
         model.addAttribute("title",app+" "+ip);
+        model.addAttribute("path",app+"/"+ip);
         String id = session.getId()+ip;
         if(JschUtils.connect(id,ip)){
-            List<String> data = SessionUtils.getData(id);
-            String sessionStrings = DataUtils.buildData(data);
-            model.addAttribute("sessionData",sessionStrings);
+            model.addAttribute("sessionData","connect success");
 
         } else {
             model.addAttribute("sessionData","Connect failed");
@@ -58,8 +61,9 @@ public class SshController {
 
     @RequestMapping("{app}/{ip}/query")
     @ResponseBody
-    public CommandResponse sendCommandData(@PathVariable("app")String app, @PathVariable("ip") String ip, @RequestParam("command")String command, HttpSession session) throws InterruptedException {
+    public CommandResponse getData(@PathVariable("app")String app, @PathVariable("ip") String ip, @RequestParam("command")String command, HttpSession session) throws InterruptedException {
         //get login to the ssh service
+        //just try to send data. not get data.
         String id = session.getId()+ip;
         Channel channel = ChannelRegister.getChannel(id);
         if(channel==null){
@@ -75,16 +79,33 @@ public class SshController {
         }catch (Exception e){
             return new CommandResponse(false,"write command catch exception");
         }
+//        List<String> data = SessionUtils.getData(id);
+//        int i =1;
+//        while(CollectionUtils.isEmpty(data)&&i<10){
+//            data = SessionUtils.getData(id);
+//            i++;
+//            Thread.sleep(1000);
+//        }
+//        if(CollectionUtils.isEmpty(data)){
+//            return new CommandResponse(false,"can't get data in 10 seconds");
+//        }
+//        String sessionStrings = DataUtils.buildData(data);
+        return new CommandResponse(true,"success");
+    }
 
+
+    @RequestMapping("{app}/{ip}/getData")
+    @ResponseBody
+    public CommandResponse getData(@PathVariable("app")String app, @PathVariable("ip") String ip, HttpSession session) throws InterruptedException {
+        //get login to the ssh service
+        //just try to send data. not get data.
+        String id = session.getId()+ip;
         List<String> data = SessionUtils.getData(id);
         int i =1;
         while(CollectionUtils.isEmpty(data)&&i<10){
             data = SessionUtils.getData(id);
             i++;
             Thread.sleep(1000);
-        }
-        if(CollectionUtils.isEmpty(data)){
-            return new CommandResponse(false,"can't get data in 10 seconds");
         }
         String sessionStrings = DataUtils.buildData(data);
         return new CommandResponse(true,sessionStrings);

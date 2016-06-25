@@ -4,8 +4,9 @@
 ##    <div id="div$follow"></div>
 ##    #end
     $title
+<textarea name="textarea" class="sessionText" rows="10" cols="50" id="sessionText">$sessionData</textarea>
+<div id="urlPath"hidden>$path</div>
 <input type="text" class="command" />
-<textarea name="textarea" rows="10" cols="50" id="bigtext">$sessionData</textarea>
 #end
 #define($jsFile)
 <script src="/resources/js/controller/sshsession.js"></script>

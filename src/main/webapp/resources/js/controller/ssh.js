@@ -10,7 +10,7 @@ $(document).ready(function(){
             var device = $.parseJSON(data);
             for(key in device){
                 html = html+device[key].hostname+" "+device[key].private_ip;
-                html+="<input type=\"button\" onclick=\"location.href='http:\/ssh"+"\/"+id+"\/"+device[key].private_ip+"';\" value=\"连接\" \/>";
+                html+="<input type=\"button\" onclick=\"location.href='http:\/ssh"+"\/"+id+"\/"+device[key].private_ip+"\/"+"';\" value=\"连接\" \/>";
                 html+="</br>";
             }
             var changid = "div"+id;
